@@ -5,6 +5,6 @@ In order for this script to work, you need to add an .env file to your projet di
 
 - **LOGIN**
 
- - **PASSWORD**
+- **PASSWORD**
 
- - **BASE_URL**
+- **BASE_URL**
