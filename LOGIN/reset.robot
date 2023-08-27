@@ -27,7 +27,7 @@ Check Background Image
 
 Check Logo
 	[Tags]    robot:recursive-continue-on-failure
-	Check Logo Is Visible   ${LOGO_XPATH}   ${LOGO_SRC}
+	Check Image Is Visible   ${LOGO_XPATH}   ${LOGO_SRC}
 
 Check Message
 	[Tags]    robot:recursive-continue-on-failure
