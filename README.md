@@ -10,7 +10,7 @@ In order for this script to work, you need to add an .env file to your project d
 ``PASSWORD``
 
 
-Exemple : 
+Example : 
 
-![Exemple de fichier .env](https://github.com/jpvincent1980/QOS/blob/main/ASSETS/env.png)
+![Example](https://github.com/jpvincent1980/QOS/blob/main/ASSETS/env.png)
 
