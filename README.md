@@ -3,8 +3,14 @@
 In order for this script to work, you need to add an .env file to your projet directory and set the following environment variables in it :
 
 
-- **LOGIN**
+``BASE_URL``
 
-- **PASSWORD**
+``LOGIN``
 
-- **BASE_URL**
+``PASSWORD``
+
+
+Exemple : 
+
+![Exemple de fichier .env](https://github.com/jpvincent1980/QOS/ASSETS/env.png)
+
