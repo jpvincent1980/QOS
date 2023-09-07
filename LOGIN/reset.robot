@@ -2,8 +2,6 @@
 Documentation   Tests automatisés pour la réinitialisation de son mot de passe
 Library         SeleniumLibrary     run_on_failure=NOTHING
 Library         Collections
-Library         String
-Library         DateTime
 Resource        login.resource
 Resource        ../main.resource
 Variables       ../presets.py
