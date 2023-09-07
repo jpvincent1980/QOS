@@ -18,6 +18,7 @@ Check Images have alternative text
     @{images}  Get Webelements  tag:img
 	FOR  ${image}  IN  @{images}
 		${alt}  Get Element Attribute  ${image}  alt
+		Variable Should Exist  ${alt}
         Should Not Be Empty    ${alt}
     END
 
