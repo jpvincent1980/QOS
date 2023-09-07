@@ -14,6 +14,13 @@ Check Image Is Visible
 	${response}     GET            ${image_src}
 	Should Be Equal As Integers    ${response.status_code}  200
 
+Check Images have alternative text
+    @{images}  Get Webelements  tag:img
+	FOR  ${image}  IN  @{images}
+		${alt}  Get Element Attribute  ${image}  alt
+        Should Not Be Empty    ${alt}
+    END
+
 Check Error Message
 	[Arguments]    ${error_text}
     Wait Until Page Contains Element    xpath://*/div[contains(@class, "container-message")]
