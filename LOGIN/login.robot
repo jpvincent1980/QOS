@@ -1,9 +1,7 @@
 *** Settings ***
-Documentation   Tests automatisés pour la connexion à l'application Quantum
+Documentation   Tests automatisés pour la connexion à l'application Qantum
 Library         SeleniumLibrary     run_on_failure=NOTHING
 Library         Collections
-Library         String
-Library         DateTime
 Resource        login.resource
 Resource        ../main.resource
 Variables       ../presets.py
