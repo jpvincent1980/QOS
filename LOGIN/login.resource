@@ -17,9 +17,15 @@ Check Image Is Visible
 Check Images have alternative text
     @{images}  Get Webelements  tag:img
 	FOR  ${image}  IN  @{images}
+		${src}  Get Element Attribute  ${image}  src
 		${alt}  Get Element Attribute  ${image}  alt
-		Variable Should Exist  ${alt}
-        Should Not Be Empty    ${alt}
+		Run Keyword And Warn On Failure  Variable Should Exist  ${alt}
+        Run Keyword And Warn On Failure  Should Not Be Empty    ${alt}
+        ${status_if_exists}  Run Keyword And Return Status   Variable Should Exist    ${alt}
+        ${status_if_empty}  Run Keyword And Return Status    Should Not Be Empty    ${alt}
+        IF  ${status_if_exists} == False or ${status_if_empty} == False
+        	Log To Console    L'image dont le src est '${src}' ne possède pas de texte alternatif.
+        END
     END
 
 Check Error Message

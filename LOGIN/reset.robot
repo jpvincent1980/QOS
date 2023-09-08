@@ -25,6 +25,10 @@ Check Background Image
 Check Logo
 	Check Image Is Visible   ${LOGO_XPATH}   ${LOGO_SRC}
 
+Check Webpage Images have alternative text
+	[Tags]    RGAA
+	Check Images Have Alternative Text
+
 Check Message
 	Element Text Should Be      ${MESSAGE_XPATH}    ${MESSAGE}
 
