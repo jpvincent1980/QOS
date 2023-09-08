@@ -2,11 +2,11 @@
 Documentation   Tests automatisés pour la réinitialisation de son mot de passe
 Library         SeleniumLibrary     run_on_failure=NOTHING
 Library         Collections
-Resource        login.resource
-Resource        ../main.resource
-Variables       ../presets.py
-Variables       reset_variables.py
-Variables       reset_xpaths.py
+Resource        ../KEYWORDS/login.resource
+Resource        ../../main.resource
+Variables       ../../presets.py
+Variables       ../VARIABLES/reset_variables.py
+Variables       ../LOCATORS/reset_locators.py
 Suite Setup     Open Browser And Maximize    ${url}  ${browser}
 Suite Teardown  Pause And Close Browser
 Test Tags       robot:recursive-continue-on-failure

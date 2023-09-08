@@ -2,11 +2,11 @@
 Documentation   Tests automatisés pour la connexion à l'application Qantum
 Library         SeleniumLibrary     run_on_failure=NOTHING
 Library         Collections
-Resource        login.resource
-Resource        ../main.resource
-Variables       ../presets.py
-Variables       login_variables.py
-Variables       login_xpaths.py
+Resource        ../KEYWORDS/login.resource
+Resource        ../../main.resource
+Variables       ../../presets.py
+Variables       ../VARIABLES/login_variables.py
+Variables       ../LOCATORS/login_locators.py
 Suite Setup     Open Browser And Maximize    ${url}  ${browser}
 Suite Teardown  Pause And Close Browser
 Test Tags       robot:recursive-continue-on-failure

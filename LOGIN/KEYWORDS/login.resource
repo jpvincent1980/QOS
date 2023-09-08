@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     RequestsLibrary
 Library     Collections
 Library     DateTime
-Variables   ../presets.py
+Variables   ../../presets.py
 
 
 *** Keywords ***
