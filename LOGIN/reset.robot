@@ -7,7 +7,7 @@ Resource        ../main.resource
 Variables       ../presets.py
 Variables       reset_variables.py
 Variables       reset_xpaths.py
-Suite Setup     Open Browser    ${url}  ${browser}  options=add_argument("--start-maximized");add_argument("--headless");add_experimental_option('excludeSwitches', ['enable-logging'])
+Suite Setup     Open Browser And Maximize    ${url}  ${browser}
 Suite Teardown  Pause And Close Browser
 Test Tags       robot:recursive-continue-on-failure
 
