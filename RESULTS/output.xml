@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.0 on win32)" generated="20230908 11:09:46.480" rpa="false" schemaversion="4">
+<suite id="s1" name="QOS" source="C:\Users\Jean-Philippe\Projects\QOS">
+<suite id="s1-s1" name="LOGIN" source="C:\Users\Jean-Philippe\Projects\QOS\LOGIN">
+<suite id="s1-s1-s1" name="TEST CASES" source="C:\Users\Jean-Philippe\Projects\QOS\LOGIN\TEST_CASES">
+<suite id="s1-s1-s1-s1" name="Login" source="C:\Users\Jean-Philippe\Projects\QOS\LOGIN\TEST_CASES\login.robot">
+<kw name="Open Browser And Maximize" library="main" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--start-maximized");add_argument("--headless");add_experimental_option('excludeSwitches', ['enable-logging'])</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230908 11:09:46.922" level="INFO">Opening browser 'Chrome' to base url 'https://qantum.qosenergy.com/app/auth/'.</msg>
+<status status="PASS" starttime="20230908 11:09:46.921" endtime="20230908 11:09:51.763"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:46.920" endtime="20230908 11:09:51.763"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="Check Webpage Title" line="19">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${WEBPAGE_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230908 11:09:51.775" level="INFO">Page title is 'Qantum ® - Auth : Login'.</msg>
+<status status="PASS" starttime="20230908 11:09:51.764" endtime="20230908 11:09:51.775"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:51.763" endtime="20230908 11:09:51.779"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Check Background Image" line="22">
+<kw name="Background Image Should Be" library="functions">
+<arg>${BACKGROUND_IMAGE_SRC}</arg>
+<doc>A function that double checks presence and name of a webpage's
+background</doc>
+<status status="PASS" starttime="20230908 11:09:51.782" endtime="20230908 11:09:51.818"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:51.781" endtime="20230908 11:09:51.819"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Check Logo" line="25">
+<kw name="Check Image Is Visible" library="login">
+<arg>${LOGO_XPATH}</arg>
+<arg>${LOGO_SRC}</arg>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${image_src}</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20230908 11:09:51.843" level="INFO">Current page contains image 'https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png'.</msg>
+<status status="PASS" starttime="20230908 11:09:51.821" endtime="20230908 11:09:51.843"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${image_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230908 11:09:51.875" level="INFO">Element '//*[@id='login-form']/div[1]/img' is displayed.</msg>
+<status status="PASS" starttime="20230908 11:09:51.843" endtime="20230908 11:09:51.875"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${image_src}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230908 11:09:51.965" level="INFO">GET Request : url=https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png 
+ path_url=/app/brands/qantum/qantum_login_x_slim.png 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230908 11:09:52.080" level="INFO">GET Response : url=https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'server': 'nginx/1.23.4', 'content-type': 'image/png', 'last-modified': 'Mon, 28 Aug 2023 07:32:44 GMT', 'etag': 'W/"64ec4d9c-3945"', 'cache-control': 'no-cache', 'accept-ranges': 'bytes', 'x-robots-tag': 'noindex,nofollow always', 'x-proxy': 'ig-hp-kubernetes-ingress-5c57bfc557-7cmv6', 'x-men': 'SRV_2', 'content-encoding': 'gzip', 'Date': 'Fri, 08 Sep 2023 09:09:53 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-par-lfpg1960046-PAR', 'X-Cache': 'MISS', 'X-Cache-Hits': '0', 'X-Timer': 'S1694164193.299945,VS0,VE8', 'Vary': 'Accept-Encoding', 'Strict-Transport-Security': 'max-age=15768000; includeSubDomains; preload', 'transfer-encoding': 'chunked'} 
+ body=�PNG
+
+IHDR�3\�8�zTXtRaw profile type exifxڥ�Wrd�vE�1
+�� B3��62Y�W/B-�Qd2.p�6�-g�����_5e�ri��Z=_y�'��|��3��~��{����?�R��yJ����}������_�G�/��}a���������^(iF����(���;��,����_�����g�/�s�qwz��o~�;7�w
+�I1Z
+������%��{0��ycH��%��|�΄��)N������j�����_�~��O���������[���|ޅ�笼���ʹſ?�jh����{�}kf3WB]���Y�{��HG֥�cj�7��h�{�ݩ�M)���{�"�!�f����6S��\l&lt;�q������2���Í-�tR'���=��k.�]v����:W&gt;����`����o�O?p�Z!�2�+~ƨ`3eN?y	����������`Q��"�������A���xc���C;��.L&amp;$2@�B*��bl!�N�&amp;SW�,2J��IƜR%7=��|����X"O;���D���i�����r��fI%�Rji��QfM5�RkmU�8[jٵ�jk���fO=��ko����#�e��Fc��5'#O&gt;=yÜ+���*n��V_c�M��ˮ���Ǟ'�t��SO;��3-�dيUk�mؼ��M��[n���;����oZ���d-|�_����+k&lt;���ApR�3]d\-(訜�r�ʜr��Jd�E9;A#��B,7����OF���W�\��[��f�)u�0s���?e툆�����PA����u[��]��s�.���ZM�O�Y��sn���:)�s�Cl��W���L��Vs&amp;��oo(��Er̾��[=;��x;Wړ$]_��o"�tά�~�}�s���5u0bV7��[�V�=�YͷO�k*D}�����:�a�D!m��YHŹ��f-W��L��ݮ�~���49�$t�2#˥d�����s��9�Ӷ����ϝG͖�(~v&gt;͐e��O���@xX��kݹ!F��&amp;����|�u�s�tJ��o��e�]�/�*aY�;��	��xV�}�Z�3]��ZX���v=�P��p���5x�]2{�Y�R�ړOm��&gt;�¶���lO'�j5�-�|��V���`�H�2آW�&lt;�ʣz��,�b�y��k�N*���
+TH��D��2��}��¡�̄��a�X��x�n9���nF�x�fR���ZΩI#���Z�g�+��v������-��|=�A��S���갦&lt;��p�����
+�%nځ��n�[+EI%1�ʃ�,Y�4�#�O�7���ޜ��w;��6�C"X��a-E��-���{$k��@@��_�'�7�JmYCut:p�6�ש�1z_���N���
+̂�Qk�2��R.XD�l��sTUR�9����R�����=�XR�̧7m��ljexR��\�m��I��ɒ|7Ϗ8i-1�15%�	y��ph�3���5�r]Y�lխ��4ϻ|�(,�&amp;��PX��tA�rXZ���0�^:%�M��ʡlC�l�h��� ïk��+k���
+-,Zj�Êc�E�z��"�]]�A�5��L]*�:�nQЀ��PВ�:�{�:������7�{;з+zI�y�5��GЗ����@��AS�y�و�Ŕx�Ň��7�&amp;���L�#�8�nh�y�Zľ�a-�h���3�:]p���cql�;�~&lt;M�ľ[����&gt;��F��B�aW�7��#ID$B�af��lg/5�l�	�y��=ԙ.���&amp;��\fF`��S�ً)��$��Fh���JQ���n�s&amp;�q-�Y��)N�}��+ i��؃�e�uX�=ԅ��	ލʄg���v�0\0hO�sO'��z�
+01b]t�����d�N�3P1�D�����C�w��HYY�M��5FC���;`0��ARʓ&gt;ZH�E����Ħ�P�Y��j]��*�(��K�R&lt;4pd��CY_X�(�W���''�=��P��$����X�X�?��k{#�W!�㨕�&lt;���`�L�	�C2 ���b��|HsS)ʙj�T)d���X�
+�Sx�Rץ,�Eˠ�`X�jX�6��vB�У ʍ��;F��ko�
+���ߝ���@��r�!����SQFs�Bp޴He�*��if)T
+�1�9}�:�t����ef�+�c�_&amp;i����=��y�h9��R��]՘��k��,¼��ۚ�LE��.�&lt;K'k@%	�vF��I���1���T$H�p/�\`�X���b ?�$�wMd�g%��3�_!L=D��v0��U)�z����=�@��&gt;��-j�2��.7Djk�-m ߡ�bF7���6�H����GM�q�����u��6^:�;&gt;�8����I3lh��?��X�Dm��M���䍔I�SV��"5�P0в�eZ�CaW����	�Bf�8���$�"X7�|��67�b$�
+k�̇�!��_^;�f�E�У��Ј��+��؅�(���:"�Z�@\i��
+�#JaE���t�@�,y�U��(.�-�GB���$ȐU�L�KF�B�x*fEo�@�^F��e��H��F�B���D�;���[\���(� �}�y���D�6C��R�Bʁd���z6\�v?���ޑstQa�(��J�?�;P	X�*�A��N�
+u���wA��H&gt;���L�fJ�]bx(~���!����c�h����~�(Z�6L����6Hg��6ʇ0c6z�!u}[�&amp;�x݊
+	�A� ��6�IE�9s�D�JY!I&gt;��T����B��'�&gt;�N����+!�����C���x{TěLS��mck����!�K1��i}$4�ł�KS+f��N'�.+-�� �B�Vy0B[h��;"�h�r��=0*ҥ	C)Z$$\L�����86&lt;�^;�8F�(����m��N5��������&gt;ǡ6(���&lt;4,�+������GM@6�eE���E��6 �D��
+n������[�m�Nc�(��%{Қb�,-�$��]R��;"���K���
+ow�O�cc����$��5PA���Q%���q(B�D���l�}��g9-���oISS��B�p��t����0t`�$9�&amp;�+8[���̄"���%��|��!:��P��@X����JQ��,If�dW{�(H2Z���K
+���A��nC�x s2ۄ�P���Q�@	�����)v%g� ���.�4R�M��A��O�o"kj��_'�
+$C���? �А�"�T�ט[�S���?.�������	�
+ً�a�Œ)��ݜ����d=����]�
+rk�(��y�I'�p%���fá&lt;t�����xF�����Z�R@�]۷����^^Ei�tD,�ӻ�)�$�I���Ԇ�����%��^�v�F��0[��&lt;&lt;O-{����"T�)t�]\sC���:�6%Q3�D�����q�ef2�l-������/��j/	�tY���7���0��Ru!��-��&amp;�.99�e"Y��:m/91_�b��SYO�� ��a��O�3T�Ԋ�R�]&lt;�xU���O�(�_�s:U3!��g}�=Z�8���w�����XL�����L�}�k�p�	(�HEͤx� �l�C�`�,�|�fY�;����D�-(F�����lR]\G�j�Bp;�J��ŀݥ��������h\��(��o��!+o�d�Az�i�m%^�+J�A�*E���@&lt;!���!'`=B����Hu��&gt;���@�Y}�v{	b]4��0����C��~�:fM%�6��GG�# �8{
+�H`��U]Ӏ�-Jf#���dz#!@N�2!4�^�&amp;dvDb.�aX�TÊdM&gt;����R�(��U-��;v��蔣h'W��k�%䬊������&amp;`�����j�֐�q���y�H2�!Bu�M�\��N,�WYh'��/��F�qJ�5����u �Z *�?-.-��P����V�t�	V$�"�"��1���C7P�`�����V��!��&amp;C�jom���`��S�XgD̍"��:0[�m(�z�f�,�)࠶��h�'�p��z�����\��I��:9�@H��C�����%ˋ�um.\=��")���$��cڛ�����g|¸9���((u9�6���]�#�E���̡�1�l�2L�39��S=2�hD(ȃ�߀�9�1���䓨2�V���U�D5[6O��#@�R�_�2��G�e�8PMLMo�l��B#�sQ�:F��J����*a��1O�"���vߪ�	�HOW�������5�)t�T�ڵ��%𙌦�ѮȦ1m
+��'i7Wj�PԨ���g�)��rӁ�DD`7���`��N��NQ�~4r�ʠC�N���x[J��"t�5�;k��i�	�d�yCHO�Ν�6���ĩ��@��e(��zmi�D��@���&gt;�&lt;�ڬ� J@K�'�T�Hٴݺ��̐��68�#�㑁z���&gt;�K�&gt;����Ъ��[�OF����p�CE�&gt;�y��k��(O�����w��řX ��`w
+Jf$iۇ�L�C�[�_p�����хޖ���{��l�tw\��1�[�[��5$S��[�:�H��K#�e��$2����ܤV�?J@3sښJ[��w����ST ']�45�� �� :��i%�p������NpE������&lt;iL�T?tFF%YB8�h������PL�~8�w�Ң��n��-:���M�}��$��e��P�ژg�wp��?nՍ�m��~Bj1Z���*�9b�h1�p8&lt;��Hm��8*t��~K]4���Tݳ�0̐�B�P�o�,�:�IxL���tFw����8Z�,j���7�����ġ�#H��Q���vxG�M�zײ��ݝ�L%0E��D��V3�ծ-f�V5i��,��o3O��.V��1�\�ܣ$r�l���.8�=vRr���&gt;�������l��%&gt;�Mp%�@�ߢ��X��b}���Ȭ:,Wj�Y�¢�H�Eմ�}�k:(�
+�a���hi�������&amp;:ۯ�3�f�Ӎ��,j\C
+��&lt;�a�7�Zy���֮."l�N�t��6P7���&gt;�[�L@�����%�{�	��.29O#��Щp��sM��^I�)y��x9\� V+�-�?t����	:�/kz�aE�}��f��y��ك�^�ApO��,��PεYB�k�"uRM�b9�|�m����5�&lt;���Wp�40}�Əy�^H������\KЙO�-h&lt;k��w���D�[ǻ�e@E�*��o߇�+�z�C2�Ⱦ&amp;'�i2�ud��3?=x��A�@K�l�OV,\��ﺀ���gǖcQ���sgҭ���Sz�jDp=�����:��PZQ;v���u�M[uJ�|����7Ӓ�@XG~��D̬�f�L��R��`�����8O�=Rѭ ��@�a�T��n� S&amp;���B%J=��:tC�E����GerH&gt;�˜"�������8x�Y����n��&lt;�}ԸV�4��DQ::�VQ/�-.Id�~z[�8x���i�z^([|H��lG/���D�iWa =��?�����-¢�z���Z��4�d��S�΂@?�Erd(_s�W�˧��gr������H��O��s�l=�p�К��3ݿiMJ�a��&lt;Ӎt���z����Z���~�UF����T�m��������&lt;@:��&amp;��Yk~�2�[MG)����7�j+�݅�&amp;��م�&gt;ׅDsy�8Z�G{�o�@B`���]�3P���%L�P6��-��?���^��x�� ��Txڔr��s�nzхu��L�1�NQ���#�wtfAc�s�&lt;R�|Ig{�9�Y�DeK�p�%k���F��Ѷ̹�*T�Ѽ-�-t��9w*�sn���t�=uz��Ά��{[ԽX�j���ad����D�TB��&lt;�,��EE.4�aH,�v��]�F_V�ӄ����u���������Κ��QHǀv��"�� ��Ma_���hw:;�"^X�@9�z����`�Q��y���ÎU~V�n@X��:�u���I�M����E�Q
+�K�}��P�¢�B����;�Rt�^ӭ�#[�(dT����/c�-SB�"��&lt;�\�Ӆ��}Q�.��3(����u\m/���ݾ��t�0�v���8�n���vR�A�&gt;�;^*}K:����]B�4�S�����.�����8�FP����uS�����I���D}^:�ς�����-2��8,�=ѝ��*Ք6����YL��&lt;�Uc�xE�fٺOi����N4j��j�1��=��M�IG%ݠ��-���O�Ha�\�,z�6o�1�����}UH`�'j7ig����兙���Xr�R��+,�2'���*&lt;}��У&gt;_�	�톕�Y��4~�5��*�D���eh+�r�N|a������NuQ���t�J�$G��-d������ȿmFu|�]-���w&amp;#'&gt;��]TjM1B�L��ҾH �#SC�$A��Y:�OY��;}ӝwWw�i祗����׆�ߔ�-K���`ꩲ��u������#�E ��f��Z�FY�l87�{�# 1�Sؽp��V�n�D쎙5c]�h� ӥi��-����o���'H4��;�w������@��K�v��W��χ�=�e���?��Dc�'��7w�0����iCCPICC profilex�}�=H�@�_S�"��P�!Cu� *�Q�P�
+�Vh����/hҒ��8
+�?�.κ:�
+�������������"ƃ�~����{�*�̾	@�-#�J����x��(BH ,3�&gt;'Iix��{��z�Y���Cj�d�O$�eu�"� NlZu���V�U�s�q�.H��u��7�%��1��y��X�a��Y�Ј��c��S��sY��Y�6X��������u�#HaK� BATa!N�N���'=�Î_"�B�
+9P������n��Ԥ�L�/��1
+v�vӶ��m�}���+�믵��Oқ]-v����뮦��;@��.�#�i
+�"�~Fߔ·����[g�@��J���X���=�=��ۿg:����r�-�F�iTXtXML:com.adobe.xmp&lt;?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?&gt;
+&lt;x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 4.4.0-Exiv2"&gt;
+ &lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;
+  &lt;rdf:Description rdf:about=""
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:GIMP="http://www.gimp.org/xmp/"
+    xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+   xmpMM:DocumentID="gimp:docid:gimp:4fc9718a-8a78-4c81-8e3d-ae74c15f83d7"
+   xmpMM:InstanceID="xmp.iid:6cf7e65e-ed5d-42cb-9053-b002e6d847c9"
+   xmpMM:OriginalDocumentID="xmp.did:26ce4c20-dcdd-41ab-8d63-b2ddd1634107"
+   dc:Format="image/png"
+   GIMP:API="2.0"
+   GIMP:Platform="Linux"
+   GIMP:TimeStamp="1677254222748418"
+   GIMP:Version="2.10.30"
+   tiff:Orientation="1"
+   xmp:CreatorTool="GIMP 2.10"&gt;
+   &lt;xmpMM:History&gt;
+    &lt;rdf:Seq&gt;
+     &lt;rdf:li
+      stEvt:action="saved"
+      stEvt:changed="/"
+      stEvt:instanceID="xmp.iid:892b82e1-dbf4-468f-a630-0d7d40f9c7c3"
+      stEvt:softwareAgent="Gimp 2.10 (Linux)"
+      stEvt:when="2023-02-24T16:57:02+01:00"/&gt;
+    &lt;/rdf:Seq&gt;
+   &lt;/xmpMM:History&gt;
+  &lt;/rdf:Description&gt;
+ &lt;/rdf:RDF&gt;
+&lt;/x:xmpmeta&gt;
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                          ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20230908 11:09:52.081" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230908 11:09:51.875" endtime="20230908 11:09:52.081"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230908 11:09:52.082" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230908 11:09:52.081" endtime="20230908 11:09:52.082"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:51.821" endtime="20230908 11:09:52.082"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:51.820" endtime="20230908 11:09:52.082"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Check Webpage Images have alternative text" line="28">
+<kw name="Check Images have alternative text" library="login">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{images}</var>
+<arg>tag:img</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230908 11:09:52.099" level="INFO">@{images} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="7d83a6577c4a55772521f7fd5d73d7f8", element="A0360CB7E95CA9F82F580C5C2BA9DC0D_element_3")&gt; ]</msg>
+<status status="PASS" starttime="20230908 11:09:52.085" endtime="20230908 11:09:52.099"/>
+</kw>
+<for flavor="IN">
+<var>${image}</var>
+<value>@{images}</value>
+<iter>
+<var name="${image}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7d83a6577c4a55772521f7fd5d73d7f8", element="A0360CB7E95CA9F82F580C5C2BA9DC0D_element_3")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${image}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230908 11:09:52.119" level="INFO">${src} = https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png</msg>
+<status status="PASS" starttime="20230908 11:09:52.100" endtime="20230908 11:09:52.119"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${alt}</var>
+<arg>${image}</arg>
+<arg>alt</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230908 11:09:52.136" level="INFO">${alt} = Qantum_login_x</msg>
+<status status="PASS" starttime="20230908 11:09:52.119" endtime="20230908 11:09:52.136"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Variable Should Exist</arg>
+<arg>${alt}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Variable Should Exist" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" starttime="20230908 11:09:52.136" endtime="20230908 11:09:52.136"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:52.136" endtime="20230908 11:09:52.137"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Not Be Empty</arg>
+<arg>${alt}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230908 11:09:52.137" level="INFO">Length is 14</msg>
+<status status="PASS" starttime="20230908 11:09:52.137" endtime="20230908 11:09:52.137"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:52.137" endtime="20230908 11:09:52.137"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status_if_exists}</var>
+<arg>Variable Should Exist</arg>
+<arg>${alt}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Variable Should Exist" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" starttime="20230908 11:09:52.137" endtime="20230908 11:09:52.138"/>
+</kw>
+<msg timestamp="20230908 11:09:52.138" level="INFO">${status_if_exists} = True</msg>
+<status status="PASS" starttime="20230908 11:09:52.137" endtime="20230908 11:09:52.138"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status_if_empty}</var>
+<arg>Should Not Be Empty</arg>
+<arg>${alt}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230908 11:09:52.138" level="INFO">Length is 14</msg>
+<status status="PASS" starttime="20230908 11:09:52.138" endtime="20230908 11:09:52.138"/>
+</kw>
+<msg timestamp="20230908 11:09:52.138" level="INFO">${status_if_empty} = True</msg>
+<status status="PASS" starttime="20230908 11:09:52.138" endtime="20230908 11:09:52.139"/>
+</kw>
+<if>
+<branch type="IF" condition="${status_if_exists} == False or ${status_if_empty} == False">
+<kw name="Log To Console" library="BuiltIn">
+<arg>L'image dont le src est '${src}' ne possède pas de texte alternatif.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230908 11:09:52.139" endtime="20230908 11:09:52.139"/>
+</kw>
+<status status="NOT RUN" starttime="20230908 11:09:52.139" endtime="20230908 11:09:52.139"/>
+</branch>
+<status status="PASS" starttime="20230908 11:09:52.139" endtime="20230908 11:09:52.139"/>
+</if>
+<status status="PASS" starttime="20230908 11:09:52.100" endtime="20230908 11:09:52.139"/>
+</iter>
+<status status="PASS" starttime="20230908 11:09:52.100" endtime="20230908 11:09:52.139"/>
+</for>
+<status status="PASS" starttime="20230908 11:09:52.085" endtime="20230908 11:09:52.139"/>
+</kw>
+<tag>RGAA</tag>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:52.084" endtime="20230908 11:09:52.140"/>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Check Welcome Message" line="32">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${WELCOME_XPATH}</arg>
+<arg>${WELCOME}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:52.146" level="INFO">Verifying element '//*[@id='login-form']/h1' contains exact text 'Bienvenue'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.145" endtime="20230908 11:09:52.177"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:52.142" endtime="20230908 11:09:52.178"/>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Check Presence of Input(s)" line="35">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:09:52.194" level="INFO">Current page contains element '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.180" endtime="20230908 11:09:52.194"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD_XPATH}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:09:52.209" level="INFO">Current page contains element '//*[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.195" endtime="20230908 11:09:52.209"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:52.210" endtime="20230908 11:09:52.242"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD_XPATH}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:52.243" endtime="20230908 11:09:52.273"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:09:52.179" endtime="20230908 11:09:52.274"/>
+</test>
+<test id="s1-s1-s1-s1-t7" name="Check Placeholder(s)" line="42">
+<kw name="Placeholder Should Be" library="functions">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>${EMAIL_FIELD_PLACEHOLDER}</arg>
+<doc>A function that double checks presence and content of an element's
+placeholder</doc>
+<status status="PASS" starttime="20230908 11:09:52.276" endtime="20230908 11:09:52.300"/>
+</kw>
+<kw name="Placeholder Should Be" library="functions">
+<arg>${PASSWORD_FIELD_XPATH}</arg>
+<arg>${PASSWORD_FIELD_PLACEHOLDER}</arg>
+<doc>A function that double checks presence and content of an element's
+placeholder</doc>
+<status status="PASS" starttime="20230908 11:09:52.300" endtime="20230908 11:09:52.323"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:52.275" endtime="20230908 11:09:52.323"/>
+</test>
+<test id="s1-s1-s1-s1-t8" name="Check Remain Connected Checkbox And Message" line="46">
+<kw name="Page Should Contain Checkbox" library="SeleniumLibrary">
+<arg>name:remember-me</arg>
+<doc>Verifies checkbox ``locator`` is found from the current page.</doc>
+<msg timestamp="20230908 11:09:52.354" level="INFO">Current page contains checkbox 'name:remember-me'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.325" endtime="20230908 11:09:52.354"/>
+</kw>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>name:remember-me</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<msg timestamp="20230908 11:09:52.355" level="INFO">Verifying checkbox 'name:remember-me' is not selected.</msg>
+<status status="PASS" starttime="20230908 11:09:52.354" endtime="20230908 11:09:52.388"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*[@id="login-form"]/div[4]/label</arg>
+<arg>${STAY_CONNECTED_TEXT}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:52.389" level="INFO">Verifying element 'xpath://*[@id="login-form"]/div[4]/label' contains exact text 'Rester connecté'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.389" endtime="20230908 11:09:52.413"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>name:remember-me</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:52.414" level="INFO">Selecting checkbox 'name:remember-me'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.414" endtime="20230908 11:09:52.514"/>
+</kw>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<arg>name:remember-me</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<msg timestamp="20230908 11:09:52.515" level="INFO">Verifying checkbox 'name:remember-me' is selected.</msg>
+<status status="PASS" starttime="20230908 11:09:52.514" endtime="20230908 11:09:52.549"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:52.325" endtime="20230908 11:09:52.550"/>
+</test>
+<test id="s1-s1-s1-s1-t9" name="Check Forgotten Password Link And Message" line="53">
+<kw name="Page Should Contain Link" library="SeleniumLibrary">
+<arg>${FORGOTTEN_PASSWORD_RELATIVE_LINK}</arg>
+<doc>Verifies link identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20230908 11:09:52.572" level="INFO">Current page contains link '/app/auth/reset'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.552" endtime="20230908 11:09:52.572"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/a[@href="${FORGOTTEN_PASSWORD_RELATIVE_LINK}"]</arg>
+<arg>${FORGOTTEN_PASSWORD_TEXT}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:52.573" level="INFO">Verifying element 'xpath://*/a[@href="/app/auth/reset"]' contains exact text 'Mot de passe oublié ?'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.573" endtime="20230908 11:09:52.598"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:09:52.551" endtime="20230908 11:09:52.599"/>
+</test>
+<test id="s1-s1-s1-s1-t10" name="Check Connection Button" line="58">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:09:52.624" level="INFO">Current page contains element 'xpath://*/button'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.601" endtime="20230908 11:09:52.624"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<arg>${CONNECTION_BUTTON_TEXT}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:52.636" level="INFO">Verifying element 'xpath://*/button' contains exact text 'SE CONNECTER'.</msg>
+<status status="PASS" starttime="20230908 11:09:52.635" endtime="20230908 11:09:52.655"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:09:52.600" endtime="20230908 11:09:52.656"/>
+</test>
+<test id="s1-s1-s1-s1-t11" name="Check No Email Error Message" line="63">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:52.658" endtime="20230908 11:09:52.686"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:09:52.688" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:09:52.985" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:09:52.985" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:09:52.985" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:09:52.998" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:09:52.998" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:09:52.687" endtime="20230908 11:09:53.005"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:53.006" endtime="20230908 11:09:53.037"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:53.039" level="INFO">Clicking button 'xpath://*/button'.</msg>
+<status status="PASS" starttime="20230908 11:09:53.038" endtime="20230908 11:09:53.153"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${NO_EMAIL_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:09:53.155" endtime="20230908 11:09:53.173"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:53.174" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'Veuillez saisir une adresse email'.</msg>
+<status status="PASS" starttime="20230908 11:09:53.173" endtime="20230908 11:09:53.195"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:53.155" endtime="20230908 11:09:53.196"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:52.657" endtime="20230908 11:09:53.196"/>
+</test>
+<test id="s1-s1-s1-s1-t12" name="Check Ivalid Email Error Message" line="70">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:53.199" endtime="20230908 11:09:53.225"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:09:53.227" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:09:53.544" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:09:53.544" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:09:53.544" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:09:53.561" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:09:53.561" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:09:53.226" endtime="20230908 11:09:53.570"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:53.571" level="INFO">Typing text 'test' into text field '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:53.570" endtime="20230908 11:09:53.699"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:53.700" endtime="20230908 11:09:53.736"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:53.738" level="INFO">Clicking button 'xpath://*/button'.</msg>
+<status status="PASS" starttime="20230908 11:09:53.737" endtime="20230908 11:09:53.821"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${INVALID_EMAIL_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:09:53.822" endtime="20230908 11:09:53.834"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:53.835" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'L'email n'est pas valide'.</msg>
+<status status="PASS" starttime="20230908 11:09:53.834" endtime="20230908 11:09:53.860"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:53.822" endtime="20230908 11:09:53.860"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:53.198" endtime="20230908 11:09:53.860"/>
+</test>
+<test id="s1-s1-s1-s1-t13" name="Check No Password Error Message" line="78">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:53.863" endtime="20230908 11:09:53.896"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:09:53.898" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:09:54.199" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:09:54.199" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:09:54.199" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:09:54.211" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:09:54.211" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:09:53.897" endtime="20230908 11:09:54.228"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>test@test.test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:54.229" level="INFO">Typing text 'test@test.test' into text field '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:54.229" endtime="20230908 11:09:54.405"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD_XPATH}</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:54.407" level="INFO">Typing text '' into text field '//*[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:54.405" endtime="20230908 11:09:54.490"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:54.490" endtime="20230908 11:09:54.516"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:54.517" level="INFO">Clicking button 'xpath://*/button'.</msg>
+<status status="PASS" starttime="20230908 11:09:54.517" endtime="20230908 11:09:54.582"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${NO_PASSWORD_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:09:54.584" endtime="20230908 11:09:54.594"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:54.595" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'Veuillez saisir un mot de passe'.</msg>
+<status status="PASS" starttime="20230908 11:09:54.594" endtime="20230908 11:09:54.613"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:54.583" endtime="20230908 11:09:54.613"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:53.862" endtime="20230908 11:09:54.614"/>
+</test>
+<test id="s1-s1-s1-s1-t14" name="Check Invalid Password Error Message" line="87">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:54.617" endtime="20230908 11:09:54.644"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:09:54.645" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:09:54.961" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:09:54.961" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:09:54.961" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:09:54.975" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:09:54.975" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:09:54.644" endtime="20230908 11:09:54.989"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>test@test.test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:54.990" level="INFO">Typing text 'test@test.test' into text field '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:54.990" endtime="20230908 11:09:55.158"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD_XPATH}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:55.160" level="INFO">Typing text 'test' into text field '//*[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20230908 11:09:55.160" endtime="20230908 11:09:55.279"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:09:55.279" endtime="20230908 11:09:55.305"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:09:55.306" level="INFO">Clicking button 'xpath://*/button'.</msg>
+<status status="PASS" starttime="20230908 11:09:55.306" endtime="20230908 11:09:55.369"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10</arg>
+<arg>2</arg>
+<arg>Check Error Message</arg>
+<arg>${INVALID_PASSWORD_TEXT}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Check Error Message" library="login">
+<arg>${INVALID_PASSWORD_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:09:55.370" endtime="20230908 11:09:55.379"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:55.380" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'L'email ou mot de passe sont incorrects'.</msg>
+<msg timestamp="20230908 11:09:55.398" level="FAIL">The text of element 'xpath://*/div[contains(@class, "container-message")]' should have been 'L'email ou mot de passe sont incorrects' but it was 'Veuillez saisir un mot de passe'.</msg>
+<status status="FAIL" starttime="20230908 11:09:55.380" endtime="20230908 11:09:55.399"/>
+</kw>
+<status status="FAIL" starttime="20230908 11:09:55.370" endtime="20230908 11:09:55.399"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${INVALID_PASSWORD_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:09:57.415" endtime="20230908 11:09:57.438"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:09:57.440" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'L'email ou mot de passe sont incorrects'.</msg>
+<status status="PASS" starttime="20230908 11:09:57.438" endtime="20230908 11:09:57.477"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:57.414" endtime="20230908 11:09:57.477"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:55.370" endtime="20230908 11:09:57.477"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:09:54.616" endtime="20230908 11:09:57.478"/>
+</test>
+<kw name="Pause And Close Browser" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230908 11:09:59.489" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230908 11:09:57.482" endtime="20230908 11:09:59.489"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230908 11:09:59.490" endtime="20230908 11:10:01.579"/>
+</kw>
+<status status="PASS" starttime="20230908 11:09:57.482" endtime="20230908 11:10:01.580"/>
+</kw>
+<doc>Tests automatisés pour la connexion à l'application Qantum</doc>
+<status status="PASS" starttime="20230908 11:09:46.517" endtime="20230908 11:10:01.580"/>
+</suite>
+<suite id="s1-s1-s1-s2" name="Reset" source="C:\Users\Jean-Philippe\Projects\QOS\LOGIN\TEST_CASES\reset.robot">
+<kw name="Open Browser And Maximize" library="main" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--start-maximized");add_argument("--headless");add_experimental_option('excludeSwitches', ['enable-logging'])</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230908 11:10:01.619" level="INFO">Opening browser 'Chrome' to base url 'https://qantum.qosenergy.com/app/auth/reset'.</msg>
+<status status="PASS" starttime="20230908 11:10:01.618" endtime="20230908 11:10:03.695"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:01.618" endtime="20230908 11:10:03.695"/>
+</kw>
+<test id="s1-s1-s1-s2-t1" name="Check Webpage Title" line="19">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${WEBPAGE_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230908 11:10:03.729" level="INFO">Page title is 'Qantum ® - Auth : Forgot password'.</msg>
+<status status="PASS" starttime="20230908 11:10:03.696" endtime="20230908 11:10:03.730"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:03.695" endtime="20230908 11:10:03.730"/>
+</test>
+<test id="s1-s1-s1-s2-t2" name="Check Background Image" line="22">
+<kw name="Background Image Should Be" library="functions">
+<arg>${BACKGROUND_IMAGE_SRC}</arg>
+<doc>A function that double checks presence and name of a webpage's
+background</doc>
+<status status="PASS" starttime="20230908 11:10:03.732" endtime="20230908 11:10:03.767"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:03.731" endtime="20230908 11:10:03.768"/>
+</test>
+<test id="s1-s1-s1-s2-t3" name="Check Logo" line="25">
+<kw name="Check Image Is Visible" library="login">
+<arg>${LOGO_XPATH}</arg>
+<arg>${LOGO_SRC}</arg>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${image_src}</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20230908 11:10:03.790" level="INFO">Current page contains image 'https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png'.</msg>
+<status status="PASS" starttime="20230908 11:10:03.770" endtime="20230908 11:10:03.790"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${image_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230908 11:10:03.818" level="INFO">Element '//*[@id='forgot-password-form']/div[1]/img' is displayed.</msg>
+<status status="PASS" starttime="20230908 11:10:03.790" endtime="20230908 11:10:03.818"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${image_src}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230908 11:10:03.920" level="INFO">GET Request : url=https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png 
+ path_url=/app/brands/qantum/qantum_login_x_slim.png 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230908 11:10:03.930" level="INFO">GET Response : url=https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'server': 'nginx/1.23.4', 'content-type': 'image/png', 'last-modified': 'Mon, 28 Aug 2023 07:32:44 GMT', 'etag': 'W/"64ec4d9c-3945"', 'cache-control': 'no-cache', 'accept-ranges': 'bytes', 'x-robots-tag': 'noindex,nofollow always', 'x-proxy': 'ig-hp-kubernetes-ingress-5c57bfc557-7cmv6', 'x-men': 'SRV_2', 'content-encoding': 'gzip', 'Date': 'Fri, 08 Sep 2023 09:10:05 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-par-lfpg1960049-PAR', 'X-Cache': 'MISS', 'X-Cache-Hits': '0', 'X-Timer': 'S1694164205.253445,VS0,VE8', 'Vary': 'Accept-Encoding', 'Strict-Transport-Security': 'max-age=15768000; includeSubDomains; preload', 'transfer-encoding': 'chunked'} 
+ body=�PNG
+
+IHDR�3\�8�zTXtRaw profile type exifxڥ�Wrd�vE�1
+�� B3��62Y�W/B-�Qd2.p�6�-g�����_5e�ri��Z=_y�'��|��3��~��{����?�R��yJ����}������_�G�/��}a���������^(iF����(���;��,����_�����g�/�s�qwz��o~�;7�w
+�I1Z
+������%��{0��ycH��%��|�΄��)N������j�����_�~��O���������[���|ޅ�笼���ʹſ?�jh����{�}kf3WB]���Y�{��HG֥�cj�7��h�{�ݩ�M)���{�"�!�f����6S��\l&lt;�q������2���Í-�tR'���=��k.�]v����:W&gt;����`����o�O?p�Z!�2�+~ƨ`3eN?y	����������`Q��"�������A���xc���C;��.L&amp;$2@�B*��bl!�N�&amp;SW�,2J��IƜR%7=��|����X"O;���D���i�����r��fI%�Rji��QfM5�RkmU�8[jٵ�jk���fO=��ko����#�e��Fc��5'#O&gt;=yÜ+���*n��V_c�M��ˮ���Ǟ'�t��SO;��3-�dيUk�mؼ��M��[n���;����oZ���d-|�_����+k&lt;���ApR�3]d\-(訜�r�ʜr��Jd�E9;A#��B,7����OF���W�\��[��f�)u�0s���?e툆�����PA����u[��]��s�.���ZM�O�Y��sn���:)�s�Cl��W���L��Vs&amp;��oo(��Er̾��[=;��x;Wړ$]_��o"�tά�~�}�s���5u0bV7��[�V�=�YͷO�k*D}�����:�a�D!m��YHŹ��f-W��L��ݮ�~���49�$t�2#˥d�����s��9�Ӷ����ϝG͖�(~v&gt;͐e��O���@xX��kݹ!F��&amp;����|�u�s�tJ��o��e�]�/�*aY�;��	��xV�}�Z�3]��ZX���v=�P��p���5x�]2{�Y�R�ړOm��&gt;�¶���lO'�j5�-�|��V���`�H�2آW�&lt;�ʣz��,�b�y��k�N*���
+TH��D��2��}��¡�̄��a�X��x�n9���nF�x�fR���ZΩI#���Z�g�+��v������-��|=�A��S���갦&lt;��p�����
+�%nځ��n�[+EI%1�ʃ�,Y�4�#�O�7���ޜ��w;��6�C"X��a-E��-���{$k��@@��_�'�7�JmYCut:p�6�ש�1z_���N���
+̂�Qk�2��R.XD�l��sTUR�9����R�����=�XR�̧7m��ljexR��\�m��I��ɒ|7Ϗ8i-1�15%�	y��ph�3���5�r]Y�lխ��4ϻ|�(,�&amp;��PX��tA�rXZ���0�^:%�M��ʡlC�l�h��� ïk��+k���
+-,Zj�Êc�E�z��"�]]�A�5��L]*�:�nQЀ��PВ�:�{�:������7�{;з+zI�y�5��GЗ����@��AS�y�و�Ŕx�Ň��7�&amp;���L�#�8�nh�y�Zľ�a-�h���3�:]p���cql�;�~&lt;M�ľ[����&gt;��F��B�aW�7��#ID$B�af��lg/5�l�	�y��=ԙ.���&amp;��\fF`��S�ً)��$��Fh���JQ���n�s&amp;�q-�Y��)N�}��+ i��؃�e�uX�=ԅ��	ލʄg���v�0\0hO�sO'��z�
+01b]t�����d�N�3P1�D�����C�w��HYY�M��5FC���;`0��ARʓ&gt;ZH�E����Ħ�P�Y��j]��*�(��K�R&lt;4pd��CY_X�(�W���''�=��P��$����X�X�?��k{#�W!�㨕�&lt;���`�L�	�C2 ���b��|HsS)ʙj�T)d���X�
+�Sx�Rץ,�Eˠ�`X�jX�6��vB�У ʍ��;F��ko�
+���ߝ���@��r�!����SQFs�Bp޴He�*��if)T
+�1�9}�:�t����ef�+�c�_&amp;i����=��y�h9��R��]՘��k��,¼��ۚ�LE��.�&lt;K'k@%	�vF��I���1���T$H�p/�\`�X���b ?�$�wMd�g%��3�_!L=D��v0��U)�z����=�@��&gt;��-j�2��.7Djk�-m ߡ�bF7���6�H����GM�q�����u��6^:�;&gt;�8����I3lh��?��X�Dm��M���䍔I�SV��"5�P0в�eZ�CaW����	�Bf�8���$�"X7�|��67�b$�
+k�̇�!��_^;�f�E�У��Ј��+��؅�(���:"�Z�@\i��
+�#JaE���t�@�,y�U��(.�-�GB���$ȐU�L�KF�B�x*fEo�@�^F��e��H��F�B���D�;���[\���(� �}�y���D�6C��R�Bʁd���z6\�v?���ޑstQa�(��J�?�;P	X�*�A��N�
+u���wA��H&gt;���L�fJ�]bx(~���!����c�h����~�(Z�6L����6Hg��6ʇ0c6z�!u}[�&amp;�x݊
+	�A� ��6�IE�9s�D�JY!I&gt;��T����B��'�&gt;�N����+!�����C���x{TěLS��mck����!�K1��i}$4�ł�KS+f��N'�.+-�� �B�Vy0B[h��;"�h�r��=0*ҥ	C)Z$$\L�����86&lt;�^;�8F�(����m��N5��������&gt;ǡ6(���&lt;4,�+������GM@6�eE���E��6 �D��
+n������[�m�Nc�(��%{Қb�,-�$��]R��;"���K���
+ow�O�cc����$��5PA���Q%���q(B�D���l�}��g9-���oISS��B�p��t����0t`�$9�&amp;�+8[���̄"���%��|��!:��P��@X����JQ��,If�dW{�(H2Z���K
+���A��nC�x s2ۄ�P���Q�@	�����)v%g� ���.�4R�M��A��O�o"kj��_'�
+$C���? �А�"�T�ט[�S���?.�������	�
+ً�a�Œ)��ݜ����d=����]�
+rk�(��y�I'�p%���fá&lt;t�����xF�����Z�R@�]۷����^^Ei�tD,�ӻ�)�$�I���Ԇ�����%��^�v�F��0[��&lt;&lt;O-{����"T�)t�]\sC���:�6%Q3�D�����q�ef2�l-������/��j/	�tY���7���0��Ru!��-��&amp;�.99�e"Y��:m/91_�b��SYO�� ��a��O�3T�Ԋ�R�]&lt;�xU���O�(�_�s:U3!��g}�=Z�8���w�����XL�����L�}�k�p�	(�HEͤx� �l�C�`�,�|�fY�;����D�-(F�����lR]\G�j�Bp;�J��ŀݥ��������h\��(��o��!+o�d�Az�i�m%^�+J�A�*E���@&lt;!���!'`=B����Hu��&gt;���@�Y}�v{	b]4��0����C��~�:fM%�6��GG�# �8{
+�H`��U]Ӏ�-Jf#���dz#!@N�2!4�^�&amp;dvDb.�aX�TÊdM&gt;����R�(��U-��;v��蔣h'W��k�%䬊������&amp;`�����j�֐�q���y�H2�!Bu�M�\��N,�WYh'��/��F�qJ�5����u �Z *�?-.-��P����V�t�	V$�"�"��1���C7P�`�����V��!��&amp;C�jom���`��S�XgD̍"��:0[�m(�z�f�,�)࠶��h�'�p��z�����\��I��:9�@H��C�����%ˋ�um.\=��")���$��cڛ�����g|¸9���((u9�6���]�#�E���̡�1�l�2L�39��S=2�hD(ȃ�߀�9�1���䓨2�V���U�D5[6O��#@�R�_�2��G�e�8PMLMo�l��B#�sQ�:F��J����*a��1O�"���vߪ�	�HOW�������5�)t�T�ڵ��%𙌦�ѮȦ1m
+��'i7Wj�PԨ���g�)��rӁ�DD`7���`��N��NQ�~4r�ʠC�N���x[J��"t�5�;k��i�	�d�yCHO�Ν�6���ĩ��@��e(��zmi�D��@���&gt;�&lt;�ڬ� J@K�'�T�Hٴݺ��̐��68�#�㑁z���&gt;�K�&gt;����Ъ��[�OF����p�CE�&gt;�y��k��(O�����w��řX ��`w
+Jf$iۇ�L�C�[�_p�����хޖ���{��l�tw\��1�[�[��5$S��[�:�H��K#�e��$2����ܤV�?J@3sښJ[��w����ST ']�45�� �� :��i%�p������NpE������&lt;iL�T?tFF%YB8�h������PL�~8�w�Ң��n��-:���M�}��$��e��P�ژg�wp��?nՍ�m��~Bj1Z���*�9b�h1�p8&lt;��Hm��8*t��~K]4���Tݳ�0̐�B�P�o�,�:�IxL���tFw����8Z�,j���7�����ġ�#H��Q���vxG�M�zײ��ݝ�L%0E��D��V3�ծ-f�V5i��,��o3O��.V��1�\�ܣ$r�l���.8�=vRr���&gt;�������l��%&gt;�Mp%�@�ߢ��X��b}���Ȭ:,Wj�Y�¢�H�Eմ�}�k:(�
+�a���hi�������&amp;:ۯ�3�f�Ӎ��,j\C
+��&lt;�a�7�Zy���֮."l�N�t��6P7���&gt;�[�L@�����%�{�	��.29O#��Щp��sM��^I�)y��x9\� V+�-�?t����	:�/kz�aE�}��f��y��ك�^�ApO��,��PεYB�k�"uRM�b9�|�m����5�&lt;���Wp�40}�Əy�^H������\KЙO�-h&lt;k��w���D�[ǻ�e@E�*��o߇�+�z�C2�Ⱦ&amp;'�i2�ud��3?=x��A�@K�l�OV,\��ﺀ���gǖcQ���sgҭ���Sz�jDp=�����:��PZQ;v���u�M[uJ�|����7Ӓ�@XG~��D̬�f�L��R��`�����8O�=Rѭ ��@�a�T��n� S&amp;���B%J=��:tC�E����GerH&gt;�˜"�������8x�Y����n��&lt;�}ԸV�4��DQ::�VQ/�-.Id�~z[�8x���i�z^([|H��lG/���D�iWa =��?�����-¢�z���Z��4�d��S�΂@?�Erd(_s�W�˧��gr������H��O��s�l=�p�К��3ݿiMJ�a��&lt;Ӎt���z����Z���~�UF����T�m��������&lt;@:��&amp;��Yk~�2�[MG)����7�j+�݅�&amp;��م�&gt;ׅDsy�8Z�G{�o�@B`���]�3P���%L�P6��-��?���^��x�� ��Txڔr��s�nzхu��L�1�NQ���#�wtfAc�s�&lt;R�|Ig{�9�Y�DeK�p�%k���F��Ѷ̹�*T�Ѽ-�-t��9w*�sn���t�=uz��Ά��{[ԽX�j���ad����D�TB��&lt;�,��EE.4�aH,�v��]�F_V�ӄ����u���������Κ��QHǀv��"�� ��Ma_���hw:;�"^X�@9�z����`�Q��y���ÎU~V�n@X��:�u���I�M����E�Q
+�K�}��P�¢�B����;�Rt�^ӭ�#[�(dT����/c�-SB�"��&lt;�\�Ӆ��}Q�.��3(����u\m/���ݾ��t�0�v���8�n���vR�A�&gt;�;^*}K:����]B�4�S�����.�����8�FP����uS�����I���D}^:�ς�����-2��8,�=ѝ��*Ք6����YL��&lt;�Uc�xE�fٺOi����N4j��j�1��=��M�IG%ݠ��-���O�Ha�\�,z�6o�1�����}UH`�'j7ig����兙���Xr�R��+,�2'���*&lt;}��У&gt;_�	�톕�Y��4~�5��*�D���eh+�r�N|a������NuQ���t�J�$G��-d������ȿmFu|�]-���w&amp;#'&gt;��]TjM1B�L��ҾH �#SC�$A��Y:�OY��;}ӝwWw�i祗����׆�ߔ�-K���`ꩲ��u������#�E ��f��Z�FY�l87�{�# 1�Sؽp��V�n�D쎙5c]�h� ӥi��-����o���'H4��;�w������@��K�v��W��χ�=�e���?��Dc�'��7w�0����iCCPICC profilex�}�=H�@�_S�"��P�!Cu� *�Q�P�
+�Vh����/hҒ��8
+�?�.κ:�
+�������������"ƃ�~����{�*�̾	@�-#�J����x��(BH ,3�&gt;'Iix��{��z�Y���Cj�d�O$�eu�"� NlZu���V�U�s�q�.H��u��7�%��1��y��X�a��Y�Ј��c��S��sY��Y�6X��������u�#HaK� BATa!N�N���'=�Î_"�B�
+9P������n��Ԥ�L�/��1
+v�vӶ��m�}���+�믵��Oқ]-v����뮦��;@��.�#�i
+�"�~Fߔ·����[g�@��J���X���=�=��ۿg:����r�-�F�iTXtXML:com.adobe.xmp&lt;?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?&gt;
+&lt;x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 4.4.0-Exiv2"&gt;
+ &lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;
+  &lt;rdf:Description rdf:about=""
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:GIMP="http://www.gimp.org/xmp/"
+    xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+   xmpMM:DocumentID="gimp:docid:gimp:4fc9718a-8a78-4c81-8e3d-ae74c15f83d7"
+   xmpMM:InstanceID="xmp.iid:6cf7e65e-ed5d-42cb-9053-b002e6d847c9"
+   xmpMM:OriginalDocumentID="xmp.did:26ce4c20-dcdd-41ab-8d63-b2ddd1634107"
+   dc:Format="image/png"
+   GIMP:API="2.0"
+   GIMP:Platform="Linux"
+   GIMP:TimeStamp="1677254222748418"
+   GIMP:Version="2.10.30"
+   tiff:Orientation="1"
+   xmp:CreatorTool="GIMP 2.10"&gt;
+   &lt;xmpMM:History&gt;
+    &lt;rdf:Seq&gt;
+     &lt;rdf:li
+      stEvt:action="saved"
+      stEvt:changed="/"
+      stEvt:instanceID="xmp.iid:892b82e1-dbf4-468f-a630-0d7d40f9c7c3"
+      stEvt:softwareAgent="Gimp 2.10 (Linux)"
+      stEvt:when="2023-02-24T16:57:02+01:00"/&gt;
+    &lt;/rdf:Seq&gt;
+   &lt;/xmpMM:History&gt;
+  &lt;/rdf:Description&gt;
+ &lt;/rdf:RDF&gt;
+&lt;/x:xmpmeta&gt;
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                          ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20230908 11:10:03.935" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230908 11:10:03.818" endtime="20230908 11:10:03.935"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230908 11:10:03.937" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230908 11:10:03.936" endtime="20230908 11:10:03.937"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:03.770" endtime="20230908 11:10:03.937"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:03.769" endtime="20230908 11:10:03.938"/>
+</test>
+<test id="s1-s1-s1-s2-t4" name="Check Webpage Images have alternative text" line="28">
+<kw name="Check Images have alternative text" library="login">
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{images}</var>
+<arg>tag:img</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230908 11:10:03.959" level="INFO">@{images} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="62754701e300da59826c9734ba3dbb6e", element="10EA8751FF0DB8CA6F466A3086AFA3E1_element_4")&gt; ]</msg>
+<status status="PASS" starttime="20230908 11:10:03.942" endtime="20230908 11:10:03.959"/>
+</kw>
+<for flavor="IN">
+<var>${image}</var>
+<value>@{images}</value>
+<iter>
+<var name="${image}">&lt;selenium.webdriver.remote.webelement.WebElement (session="62754701e300da59826c9734ba3dbb6e", element="10EA8751FF0DB8CA6F466A3086AFA3E1_element_4")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${image}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230908 11:10:03.975" level="INFO">${src} = https://qantum.qosenergy.com/app/brands/qantum/qantum_login_x_slim.png</msg>
+<status status="PASS" starttime="20230908 11:10:03.960" endtime="20230908 11:10:03.975"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${alt}</var>
+<arg>${image}</arg>
+<arg>alt</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230908 11:10:03.991" level="INFO">${alt} = Qantum_login_x</msg>
+<status status="PASS" starttime="20230908 11:10:03.976" endtime="20230908 11:10:03.991"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Variable Should Exist</arg>
+<arg>${alt}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Variable Should Exist" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" starttime="20230908 11:10:03.992" endtime="20230908 11:10:03.992"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:03.991" endtime="20230908 11:10:03.992"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Not Be Empty</arg>
+<arg>${alt}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230908 11:10:03.993" level="INFO">Length is 14</msg>
+<status status="PASS" starttime="20230908 11:10:03.992" endtime="20230908 11:10:03.993"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:03.992" endtime="20230908 11:10:03.993"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status_if_exists}</var>
+<arg>Variable Should Exist</arg>
+<arg>${alt}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Variable Should Exist" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="PASS" starttime="20230908 11:10:03.993" endtime="20230908 11:10:03.993"/>
+</kw>
+<msg timestamp="20230908 11:10:03.993" level="INFO">${status_if_exists} = True</msg>
+<status status="PASS" starttime="20230908 11:10:03.993" endtime="20230908 11:10:03.993"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status_if_empty}</var>
+<arg>Should Not Be Empty</arg>
+<arg>${alt}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${alt}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230908 11:10:03.994" level="INFO">Length is 14</msg>
+<status status="PASS" starttime="20230908 11:10:03.994" endtime="20230908 11:10:03.994"/>
+</kw>
+<msg timestamp="20230908 11:10:03.994" level="INFO">${status_if_empty} = True</msg>
+<status status="PASS" starttime="20230908 11:10:03.993" endtime="20230908 11:10:03.994"/>
+</kw>
+<if>
+<branch type="IF" condition="${status_if_exists} == False or ${status_if_empty} == False">
+<kw name="Log To Console" library="BuiltIn">
+<arg>L'image dont le src est '${src}' ne possède pas de texte alternatif.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230908 11:10:03.995" endtime="20230908 11:10:03.995"/>
+</kw>
+<status status="NOT RUN" starttime="20230908 11:10:03.994" endtime="20230908 11:10:03.995"/>
+</branch>
+<status status="PASS" starttime="20230908 11:10:03.994" endtime="20230908 11:10:03.995"/>
+</if>
+<status status="PASS" starttime="20230908 11:10:03.960" endtime="20230908 11:10:03.995"/>
+</iter>
+<status status="PASS" starttime="20230908 11:10:03.959" endtime="20230908 11:10:03.995"/>
+</for>
+<status status="PASS" starttime="20230908 11:10:03.942" endtime="20230908 11:10:03.995"/>
+</kw>
+<tag>RGAA</tag>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:03.941" endtime="20230908 11:10:03.996"/>
+</test>
+<test id="s1-s1-s1-s2-t5" name="Check Message" line="32">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MESSAGE_XPATH}</arg>
+<arg>${MESSAGE}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:10:04.000" level="INFO">Verifying element '//*[@id='forgot-password-form']/h1' contains exact text 'Réinitialiser le mot de passe'.</msg>
+<status status="PASS" starttime="20230908 11:10:03.998" endtime="20230908 11:10:04.032"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:03.997" endtime="20230908 11:10:04.033"/>
+</test>
+<test id="s1-s1-s1-s2-t6" name="Check Presence of Input(s)" line="35">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:10:04.051" level="INFO">Current page contains element '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:10:04.036" endtime="20230908 11:10:04.051"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:04.051" endtime="20230908 11:10:04.094"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:10:04.035" endtime="20230908 11:10:04.095"/>
+</test>
+<test id="s1-s1-s1-s2-t7" name="Check Placeholder(s)" line="40">
+<kw name="Placeholder Should Be" library="functions">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>${EMAIL_FIELD_PLACEHOLDER}</arg>
+<doc>A function that double checks presence and content of an element's
+placeholder</doc>
+<status status="PASS" starttime="20230908 11:10:04.097" endtime="20230908 11:10:04.124"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:04.096" endtime="20230908 11:10:04.125"/>
+</test>
+<test id="s1-s1-s1-s2-t8" name="Check Button(s)" line="43">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${CANCEL_BUTTON_TEXT}")]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:10:04.142" level="INFO">Current page contains element 'xpath://*/button[contains(text(),"ANNULER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:04.127" endtime="20230908 11:10:04.142"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230908 11:10:04.157" level="INFO">Current page contains element 'xpath://*/button[contains(text(),"VALIDER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:04.142" endtime="20230908 11:10:04.157"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:10:04.126" endtime="20230908 11:10:04.158"/>
+</test>
+<test id="s1-s1-s1-s2-t9" name="Check No Email Error Message" line="48">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:04.161" endtime="20230908 11:10:04.194"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:10:04.196" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:10:04.481" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:10:04.481" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:10:04.481" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:10:04.495" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:10:04.495" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:10:04.195" endtime="20230908 11:10:04.506"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:04.507" endtime="20230908 11:10:04.537"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:04.538" level="INFO">Clicking button 'xpath://*/button[contains(text(),"VALIDER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:04.538" endtime="20230908 11:10:04.643"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${NO_EMAIL_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:10:04.644" endtime="20230908 11:10:04.660"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:10:04.661" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'Veuillez saisir une adresse email'.</msg>
+<status status="PASS" starttime="20230908 11:10:04.660" endtime="20230908 11:10:04.684"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:04.643" endtime="20230908 11:10:04.685"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:04.160" endtime="20230908 11:10:04.685"/>
+</test>
+<test id="s1-s1-s1-s2-t10" name="Check Ivalid Email Error Message" line="55">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:04.688" endtime="20230908 11:10:04.720"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:10:04.722" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:10:05.029" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:10:05.029" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:10:05.029" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:10:05.041" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:10:05.041" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:10:04.721" endtime="20230908 11:10:05.048"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:05.049" level="INFO">Typing text 'test' into text field '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:10:05.049" endtime="20230908 11:10:05.175"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:05.176" endtime="20230908 11:10:05.209"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:05.210" level="INFO">Clicking button 'xpath://*/button[contains(text(),"VALIDER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:05.210" endtime="20230908 11:10:05.283"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${INVALID_EMAIL_TEXT}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:10:05.284" endtime="20230908 11:10:05.295"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:10:05.296" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'L'email n'est pas valide'.</msg>
+<status status="PASS" starttime="20230908 11:10:05.295" endtime="20230908 11:10:05.317"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:05.284" endtime="20230908 11:10:05.317"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:04.687" endtime="20230908 11:10:05.317"/>
+</test>
+<test id="s1-s1-s1-s2-t11" name="Check Confirmation Message" line="63">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:05.319" endtime="20230908 11:10:05.349"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>CTRL+A</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230908 11:10:05.351" level="INFO">Sending key(s) ('CTRL+A', 'BACKSPACE') to //*[@id=':r0:'] element.</msg>
+<msg timestamp="20230908 11:10:05.658" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230908 11:10:05.658" level="INFO">Sending key A</msg>
+<msg timestamp="20230908 11:10:05.659" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230908 11:10:05.673" level="INFO">Pressing special key BACKSPACE to element.</msg>
+<msg timestamp="20230908 11:10:05.673" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230908 11:10:05.350" endtime="20230908 11:10:05.688"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD_XPATH}</arg>
+<arg>test@test.test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:05.689" level="INFO">Typing text 'test@test.test' into text field '//*[@id=':r0:']'.</msg>
+<status status="PASS" starttime="20230908 11:10:05.688" endtime="20230908 11:10:05.840"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:05.842" endtime="20230908 11:10:05.871"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${VALIDATE_BUTTON_TEXT}")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:05.872" level="INFO">Clicking button 'xpath://*/button[contains(text(),"VALIDER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:05.872" endtime="20230908 11:10:05.941"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10</arg>
+<arg>2</arg>
+<arg>Check Error Message</arg>
+<arg>${CONFIRMATION_TEXT}test@test.test</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Check Error Message" library="login">
+<arg>${CONFIRMATION_TEXT}test@test.test</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:10:05.943" endtime="20230908 11:10:05.954"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:10:05.955" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'Un email a été envoyé à test@test.test'.</msg>
+<msg timestamp="20230908 11:10:05.980" level="FAIL">The text of element 'xpath://*/div[contains(@class, "container-message")]' should have been 'Un email a été envoyé à test@test.test' but it was 'L'email n'est pas valide'.</msg>
+<status status="FAIL" starttime="20230908 11:10:05.954" endtime="20230908 11:10:05.980"/>
+</kw>
+<status status="FAIL" starttime="20230908 11:10:05.942" endtime="20230908 11:10:05.980"/>
+</kw>
+<kw name="Check Error Message" library="login">
+<arg>${CONFIRMATION_TEXT}test@test.test</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230908 11:10:07.991" endtime="20230908 11:10:08.009"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://*/div[contains(@class, "container-message")]</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230908 11:10:08.011" level="INFO">Verifying element 'xpath://*/div[contains(@class, "container-message")]' contains exact text 'Un email a été envoyé à test@test.test'.</msg>
+<status status="PASS" starttime="20230908 11:10:08.010" endtime="20230908 11:10:08.037"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:07.990" endtime="20230908 11:10:08.037"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:05.942" endtime="20230908 11:10:08.037"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230908 11:10:05.319" endtime="20230908 11:10:08.038"/>
+</test>
+<test id="s1-s1-s1-s2-t12" name="Check Cancel Button Redirection" line="71">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${CANCEL_BUTTON_TEXT}")]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230908 11:10:08.041" endtime="20230908 11:10:08.073"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://*/button[contains(text(),"${CANCEL_BUTTON_TEXT}")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230908 11:10:08.074" level="INFO">Clicking button 'xpath://*/button[contains(text(),"ANNULER")]'.</msg>
+<status status="PASS" starttime="20230908 11:10:08.074" endtime="20230908 11:10:08.195"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20230908 11:10:08.202" level="INFO">${current_url} = https://qantum.qosenergy.com/app/auth</msg>
+<status status="PASS" starttime="20230908 11:10:08.196" endtime="20230908 11:10:08.202"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${BASE_URL}/app/auth</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230908 11:10:08.202" endtime="20230908 11:10:08.202"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230908 11:10:08.040" endtime="20230908 11:10:08.203"/>
+</test>
+<kw name="Pause And Close Browser" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230908 11:10:10.210" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230908 11:10:08.205" endtime="20230908 11:10:10.210"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230908 11:10:10.210" endtime="20230908 11:10:12.280"/>
+</kw>
+<status status="PASS" starttime="20230908 11:10:08.204" endtime="20230908 11:10:12.280"/>
+</kw>
+<doc>Tests automatisés pour la réinitialisation de son mot de passe</doc>
+<status status="PASS" starttime="20230908 11:10:01.589" endtime="20230908 11:10:12.280"/>
+</suite>
+<status status="PASS" starttime="20230908 11:09:46.515" endtime="20230908 11:10:12.289"/>
+</suite>
+<status status="PASS" starttime="20230908 11:09:46.512" endtime="20230908 11:10:12.295"/>
+</suite>
+<status status="PASS" starttime="20230908 11:09:46.483" endtime="20230908 11:10:12.301"/>
+</suite>
+<statistics>
+<total>
+<stat pass="26" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">RGAA</stat>
+<stat pass="6" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="26" fail="0" skip="0" id="s1" name="QOS">QOS</stat>
+<stat pass="26" fail="0" skip="0" id="s1-s1" name="LOGIN">QOS.LOGIN</stat>
+<stat pass="26" fail="0" skip="0" id="s1-s1-s1" name="TEST CASES">QOS.LOGIN.TEST CASES</stat>
+<stat pass="14" fail="0" skip="0" id="s1-s1-s1-s1" name="Login">QOS.LOGIN.TEST CASES.Login</stat>
+<stat pass="12" fail="0" skip="0" id="s1-s1-s1-s2" name="Reset">QOS.LOGIN.TEST CASES.Reset</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
